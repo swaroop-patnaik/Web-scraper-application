@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+<!-- -->
+{% block content %}
+
+<h1 style="text-align: center;">Welcome to JOBCUT</h1>
+
+<style>
+    body{
+        background-color:hsl(125, 29%, 49%);
+        color: rgb(18, 19, 19);
+    }
+    button{
+            background-color: rgb(107, 137, 169);
+            color: rgb(109, 37, 60);
+            height: 50px;
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 3rem;
+        }
+    #main-things{
+        height: 500px;
+        width: 500px;
+        position: relative;
+        top: 30px;
+        left: 450px;
+    }
+</style>
+<!-- -->
+<body>
+    <div id="main-things">
+        {% if user.is_authenticated %}
+        <h3>You are now successfully logged in!</h3>
+        <div class="card " style="width: 30rem;" id = "main card">
+            <div class="card-body ">
+               <p>&nbsp; Job searching made easier than ever!</p>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button onclick="location.href='/segment/' ; " type="button " class="btn btn-dark ">Go to search!</button>
+        </div>
+        <p>Click on the button displayed below to signout!</p>  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+        <button type=" submit "> <a href="/signout/">Signout</a> </button>
+        <!-- -->
+        {% else %}
+        <button type="submit"> <a href="signup/"> Signup </a></button>
+        <button type="submit"> <a href="signin/"> Signin </a></button>
+        <!-- -->
+        {% endif %}
+    </div>
+</body>
+
+{% endblock content %}
